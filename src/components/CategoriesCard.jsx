@@ -1,11 +1,14 @@
-import { StyleSheet, Text, View } from 'react-native'
-import colors from '../utils/colors'
+import { Pressable, StyleSheet, Text, View } from 'react-native'
+import colors from '../utils/global/colors'
+import fonts from '../utils/global/fonts'
 
-const CategoriesCard = ({ item }) => {
+const CategoriesCard = ({ item, handleCategory }) => {
     return (
-        <View style={styles.container}>
-            <Text style={styles.text}>{item}</Text>
-        </View>
+        <Pressable onPress={() => handleCategory(item)}>
+            <View style={styles.container}>
+                <Text style={styles.text}>{item}</Text>
+            </View>
+        </Pressable>
     )
 }
 
@@ -20,6 +23,7 @@ const styles = StyleSheet.create({
     },
     text: {
         color: '#000000',
-        fontSize: 16
+        fontSize: 16,
+        fontFamily: fonts.RalewayReg
     }
 })

@@ -2,13 +2,13 @@ import { StyleSheet, Text, View, FlatList } from 'react-native'
 import categories from '../utils/data/categories.json';
 import CategoriesCard from './CategoriesCard';
 
-const Categories = () => {
+const Categories = ({ handleCategory }) => {
     return (
         <View>
             <FlatList
                 data={categories}
                 keyExtractor={item => item}
-                renderItem={({ item }) => (<CategoriesCard item={item} />)}
+                renderItem={({ item }) => (<CategoriesCard handleCategory={handleCategory} item={item} />)}
             />
         </View>
     )

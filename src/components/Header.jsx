@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
-import colors from '../utils/colors'
+import colors from '../utils/global/colors'
+import fonts from '../utils/global/fonts'
 
 const Header = ({ title }) => {
     return (
@@ -18,9 +19,11 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'flex-end',
         alignItems: 'center',
+        marginBottom: 20
     },
     text: {
         fontSize: 20,
-        padding: 10
+        padding: 10,
+        fontFamily: fonts.RalewaySmBld
     }
 })
