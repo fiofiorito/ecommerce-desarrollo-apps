@@ -1,4 +1,4 @@
-import { Pressable, Keyboard, StyleSheet, Text, TextInput, View } from 'react-native'
+import { Pressable, Keyboard, StyleSheet, Text, TextInput, View, Image } from 'react-native'
 import colors from '../utils/global/colors'
 import { useState } from 'react'
 
@@ -34,15 +34,16 @@ const Search = ({ handleKeyword }) => {
                     style={styles.seachBar}
                     value={input}
                     onChangeText={handleInput}
+                    placeholderTextColor={colors.shadowyTexts}
                 />
-                <Pressable onPress={handleSearch}>
-                    <Text>Buscar</Text>
-                    {/* <AntDesing name='seach1' size={35} color={'#000'} /> */}
-                </Pressable>
-                <Pressable onPress={handleResetSearch}>
-                    <Text>Cerrar</Text>
-                    {/* <AntDesing name='closecircle' size={35} color={'#000'} /> */}
-                </Pressable>
+                <View style={styles.buttonsCont}>
+                    <Pressable onPress={handleSearch}>
+                        <Image style={styles.img} source={require('../images/search.png')} />
+                    </Pressable>
+                    <Pressable onPress={handleResetSearch}>
+                        <Image style={styles.img2} source={require('../images/cross.png')} />
+                    </Pressable>
+                </View>
             </View>
             <View>
                 {error ? <Text>{error}</Text> : null}
@@ -55,13 +56,29 @@ export default Search
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: colors.primary,
+        backgroundColor: colors.primaryBgColor,
         flexDirection: 'row',
         padding: 10,
+        justifyContent: 'space-between',
+        marginTop: -20
     },
     seachBar: {
         borderWidth: 2,
         paddingHorizontal: 10,
-        borderRadius: 5
+        borderRadius: 5,
+        width: '80%'
+    },
+    buttonsCont: {
+        flexDirection: 'row',
+        gap: 10,
+        alignItems: 'center'
+    },
+    img: {
+        width: 20,
+        height: 20
+    },
+    img2: {
+        width: 25,
+        height: 25
     }
 })

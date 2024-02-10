@@ -1,14 +1,18 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native'
 import React from 'react'
 import colors from '../utils/global/colors'
 import fonts from '../utils/global/fonts'
 
-const ProductListByCategory = ({ item }) => {
+const ProductListByCategory = ({ item, handleProductId }) => {
+    const { width } = useWindowDimensions()
+
+
     return (
-        <View style={styles.container}>
+        <Pressable onPress={() => handleProductId(item.id)} style={styles.container}>
             <Image style={styles.img} source={{ uri: item.thumbnail }} />
-            <Text style={styles.text}>{item.id} {item.title}</Text>
-        </View>
+            {/* se puede cambiar estilos condicionalmente con el hook useWindowDimensions */}
+            <Text style={[styles.text, width > 490 ? { fontSize: 20 } : { fontSize: 16 }]}>{item.id} {item.title}</Text>
+        </Pressable>
     )
 }
 
@@ -16,18 +20,20 @@ export default ProductListByCategory;
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: colors.secondary,
+        backgroundColor: colors.secondaryBgColor,
         marginHorizontal: '10%',
         padding: 10,
         margin: 10,
         borderRadius: 5,
         flexDirection: 'row',
         alignItems: 'center',
-        gap: 20
+        gap: 20,
     },
     img: {
-        width: 50,
-        height: 50
+        width: '30%',
+        height: '30%',
+        minWidth: 50,
+        minHeight: 50,
     },
     text: {
         fontFamily: fonts.RalewayReg,

@@ -16,7 +16,7 @@ export default CategoriesCard
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: colors.secondary,
+        backgroundColor: colors.secondaryBgColor,
         margin: 5,
         paddingHorizontal: 16,
         paddingVertical: 8,
