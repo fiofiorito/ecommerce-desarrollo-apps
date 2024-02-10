@@ -10,8 +10,7 @@ const ProductListByCategory = ({ item, handleProductId }) => {
     return (
         <Pressable onPress={() => handleProductId(item.id)} style={styles.container}>
             <Image style={styles.img} source={{ uri: item.thumbnail }} />
-            {/* se puede cambiar estilos condicionalmente con el hook useWindowDimensions */}
-            <Text style={[styles.text, width > 490 ? { fontSize: 20 } : { fontSize: 16 }]}>{item.id} {item.title}</Text>
+            <Text>{item.id} {item.title}</Text>
         </Pressable>
     )
 }
