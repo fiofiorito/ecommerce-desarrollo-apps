@@ -7,7 +7,7 @@ const colors = {
     buttons: '#B08968',
     mainFontColor: '#1C130C',
     contrastFontColor: '#EDE0D4',
-    shadow: '#E6CCB2',
+    shadow: '#AB6936',
     shadowyTexts: '#B08968'
 }
 

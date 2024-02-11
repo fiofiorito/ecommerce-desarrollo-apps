@@ -12,7 +12,7 @@ const Search = ({ handleKeyword }) => {
     const handleSearch = () => {
         const specialCharExpression = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/
         if (specialCharExpression.test(input)) {
-            setError('caracteres de busqueda incorrectos')
+            setError('Caracteres de búsqueda incorrectos')
             return
         }
         handleKeyword(input)
@@ -46,7 +46,9 @@ const Search = ({ handleKeyword }) => {
                 </View>
             </View>
             <View>
-                {error ? <Text>{error}</Text> : null}
+                {error ? <View style={styles.errorCont}>
+                    <Text style={styles.errorTxt}>{error}</Text>
+                </View> : null}
             </View>
         </>
     )
@@ -60,7 +62,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         padding: 10,
         justifyContent: 'space-between',
-        marginTop: -20
+        marginTop: -20,
+        marginBottom: 20
     },
     seachBar: {
         borderWidth: 2,
@@ -80,5 +83,13 @@ const styles = StyleSheet.create({
     img2: {
         width: 25,
         height: 25
+    },
+    errorCont: {
+        marginHorizontal: 20,
+        marginVertical: 10,
+    },
+    errorTxt: {
+        textAlign: 'center',
+        color: colors.shadowyTexts
     }
 })

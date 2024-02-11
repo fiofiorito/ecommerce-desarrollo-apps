@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View, FlatList } from 'react-native'
+import { StyleSheet, View, FlatList, } from 'react-native'
 import categories from '../utils/data/categories.json';
 import CategoriesCard from './CategoriesCard';
 
 const Categories = ({ handleCategory }) => {
     return (
-        <View>
+        <View style={styles.container}>
             <FlatList
                 data={categories}
                 keyExtractor={item => item}
@@ -16,4 +16,8 @@ const Categories = ({ handleCategory }) => {
 
 export default Categories
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+        height: 520,
+    }
+})

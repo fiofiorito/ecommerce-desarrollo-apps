@@ -31,15 +31,21 @@ const ProductsByCategory = ({ selectedCategory, handleProductId }) => {
         <>
             <Header title={selectedCategory} />
             <Search handleKeyword={handleKeyword} />
-            <FlatList
-                data={filteredProducts}
-                keyExtractor={item => item.id}
-                renderItem={({ item }) => <ProductListByCategory handleProductId={handleProductId} item={item} />}
-            />
+            <View styles={styles.flat}>
+                <FlatList
+                    data={filteredProducts}
+                    keyExtractor={item => item.id}
+                    renderItem={({ item }) => <ProductListByCategory handleProductId={handleProductId} item={item} />}
+                />
+            </View>
         </>
     )
 }
 
 export default ProductsByCategory
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    flat: {
+        height: 550
+    }
+})
